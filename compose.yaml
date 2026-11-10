@@ -1,0 +1,19 @@
+services:
+  sea-route:
+    build:
+      context: .
+      target: runtime
+    restart: unless-stopped
+    # A shared server stays usable if this service is flooded.
+    mem_limit: 768m
+    cpus: 1.0
+    environment:
+      SEA_ROUTE_TOKEN: ${SEA_ROUTE_TOKEN:?Set SEA_ROUTE_TOKEN}
+    ports:
+      - "127.0.0.1:5018:5018"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys, urllib.request; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:5018/health', timeout=4).status == 200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
