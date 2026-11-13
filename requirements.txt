@@ -1,0 +1,5 @@
+searoute==1.5.0
+fastapi>=0.111,<1
+uvicorn>=0.30,<1
+shapely>=2,<3
+numpy>=1.26,<3
