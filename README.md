@@ -9,6 +9,10 @@ port call. You can add stops, close passages such as Suez, and add a sea margin.
 Built on [searoute-py](https://github.com/genthalili/searoute-py). Distances are for voyage planning, **not for
 navigation**.
 
+This repository is `celixion-route-calculator`; the service, the Python package and the Docker image are named
+`sea-route`. It is the open half of the Celixion voyage calculator: routes, distances, zones and voyage time. Vessels,
+fuel, cargo and costs are not part of it.
+
 ## Run it
 
 ```bash
